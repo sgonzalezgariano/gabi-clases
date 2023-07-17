@@ -1,8 +1,10 @@
-
 import "./App.css";
 import { useState } from "react";
+import rock from "./assets/rock.png";
+import paper from "./assets/paper.png";
+import scissors from "./assets/scissors.png";
 
-function App() {
+function PiedraPapelTijera() {
   const [p1Pick, setP1Pick] = useState("");
   const [p2Pick, setP2Pick] = useState("");
 
@@ -73,29 +75,43 @@ function App() {
     }
   };
 
+  
+
   return (
     <div className="App">
       <div className="p1-one-pick">
         <h2>Player 1</h2>
-        <button onClick={() => setP1Pick("Piedra")}>Piedra</button>
-        <button onClick={() => setP1Pick("Papel")}>Papel</button>
-        <button onClick={() => setP1Pick("Tijera")}>Tijera</button>
+        <a onClick={() => setP1Pick("Piedra")}>
+          <img style={{padding: "10px"}} width="50px" src={rock} />
+        </a>
+        <a onClick={() => setP1Pick("Papel")}>
+          <img style={{padding: "10px"}} width="50px" src={paper} />
+        </a>
+        <a onClick={() => setP1Pick("Tijera")}>
+          <img style={{padding: "10px"}} width="50px" src={scissors} />
+        </a>
       </div>
       <h2>Player 2</h2>
       <div className="p2-one-pick">
-        <button onClick={() => setP2Pick("Piedra")}>Piedra</button>
-        <button onClick={() => setP2Pick("Papel")}>Papel</button>
-        <button onClick={() => setP2Pick("Tijera")}>Tijera</button>
+        <a onClick={() => setP2Pick("Piedra")}>
+          <img style={{padding: "10px"}} width="50px" src={rock} />
+        </a>
+        <a onClick={() => setP2Pick("Papel")}>
+          <img style={{padding: "10px"}} width="50px" src={paper} />
+        </a>
+        <a onClick={() => setP2Pick("Tijera")}>
+          <img style={{padding: "10px"}} width="50px" src={scissors} />
+        </a>
       </div>
-
+      {console.log("P1 Pick", p1Pick, "P2 Pick", p2Pick)}
       <div className="result">
         <h2>Result</h2>
         <button onClick={() => checkPoints()}>Resultado</button>
-        {console.log("P1 Pick", p1Pick, "P2 Pick", p2Pick)}
         {console.log("P1 POINTS", p1Points, "P2 POINTS", p2Points)}
       </div>
 
       <div className="fin">
+        <h2>End Game</h2>
         <button onClick={() => getWinner()}>Fin del juego</button>
         {console.log(winner)}
       </div>
@@ -103,4 +119,4 @@ function App() {
   );
 }
 
-export default App;
+export default PiedraPapelTijera;
